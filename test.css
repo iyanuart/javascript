@@ -1,0 +1,83 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html,body{
+    overflow-x: hidden ;
+}
+body{
+   background-color: rgb(234, 234, 235);
+}
+input{
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px rgb(158, 158, 158);
+    border: transparent;
+    width: 30%;
+    height: 8%;
+    margin-left: 30px;
+    
+}
+button{
+    background-color: rgb(24, 101, 189);
+    color: white;
+    font-weight: 700;
+    font-size: 17px;
+    cursor: pointer;
+    height: 8%;
+    box-shadow: 1px 1px 5px rgb(158, 158, 158);
+    transition: 0.5s;
+    border: transparent;
+    border-radius: 5px;
+}
+#vcd{
+    width: 90%;
+    margin-top: 10px;
+    margin-left: 50px;
+}
+#show{
+    margin-top: 20px;
+    margin-left: 50px;
+    width: 60%;
+   
+}
+#dr{
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    padding-bottom: 25px;
+}
+#showErr{
+  margin-left: 50px;
+  margin-right: 80px;
+}
+@media screen and (max-width:475px) {
+    button{
+        transform: translateX(-35px);
+    }
+    input{
+        transform: translateX(-15px);
+        width: 40%;
+    }
+    #priceLine{
+        margin-top: 20px;
+    }
+    #disp{
+        transform: translateX(-35px);
+    }
+    #showErr{
+       margin-left: 15px;
+      margin-right: 20px;
+    }
+
+button{
+    
+    color: white;
+    font-weight: 700;
+    font-size: 13px;
+}
+#show{
+    transform: translateX(-35px);
+
+}
+
+}

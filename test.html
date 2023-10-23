@@ -1,0 +1,121 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <link rel="stylesheet" href="test.css">
+</head>
+<body>
+    <div id="showErr"></div>
+    <input type="text" placeholder="enter name of product" id="nameOfProduct" autofocus>
+    <input type="text" placeholder="enter description"  id="descriptionBoth" >
+    <input type="number " placeholder="enter price" id="priceLine">
+    <button  onclick="submitTodo()" id="vcd">input</button>
+    <div id="dr">
+    <table id="show" style=" border: 2px solid rebeccapurple;
+    border-collapse: collapse;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"></table>
+    </div>
+    <script>
+             var allTodos =[]
+             show.innerHTML +=
+             `<tr style=" border: 2px solid ;padding: 5px;">
+                
+                <td  style=" border: 2px solid ;font-size:10px;padding-bottom: 0px;"><h1>S/N</h1></td>
+             <td  style=" border: 2px solid ;font-size:10px;padding-bottom: 0px;"><h1>Name </h1></td>
+            <td  style=" border: 2px solid ;font-size:10px;padding-bottom: 0px;"> <h1>Description</h1> </td>
+            <td  style=" border: 2px solid ;font-size:10px;padding-bottom: 0px;"><h1>Price($)</h1> </td>
+            <td  style=" border: 2px solid ;font-size:10px;padding-bottom: 0px;"><h1>Date</h1> </td>
+            <td  style=" border: 2px solid ;font-size:10px;padding-bottom: 0px;"><h1>Time</h1> </td>
+            
+            </tr>`
+    function submitTodo() {
+        var day =  new Date()
+        var time = day.toLocaleTimeString()
+        var date = day.toLocaleDateString()
+        var description= descriptionBoth.value;
+        var price = priceLine.value;
+        var name= nameOfProduct.value
+        var todoObj ={time,date,name,description,price}
+        if(  nameOfProduct.value=="" && descriptionBoth.value==""&& priceLine.value==""){
+            showErr.innerHTML=`<p style="border-radius: 5px; padding-left:5px; font-size:18px; padding-top:10px;margin-bottom:10px; height:10%;margin-top:15px;background-color: rgb(255, 168, 168);">Space must be filled</p>`
+        }
+       
+        else if(nameOfProduct.value!="" && descriptionBoth.value!=""&& priceLine.value=="" || nameOfProduct.value=="" && descriptionBoth.value!=""&& priceLine.value!="" ||nameOfProduct.value!="" && descriptionBoth.value==""&& priceLine.value!="" || nameOfProduct.value=="" && descriptionBoth.value==""&& priceLine.value!=""||nameOfProduct.value=="" && descriptionBoth.value!=""&& priceLine.value=="" ||nameOfProduct.value!="" && descriptionBoth.value==""&& priceLine.value==""){
+            showErr.innerHTML=`<p style="border-radius: 5px; padding-left:5px; font-size:18px; padding-top:10px;margin-bottom:10px; height:10%;margin-top:15px;background-color: rgb(255, 168, 168);">All space must be filled</p>`
+            nameOfProduct.value="";
+            descriptionBoth.value="";
+            priceLine.value="";
+        }
+
+        else {
+        allTodos.push(todoObj)
+        nameOfProduct.value=""
+        descriptionBoth.value=""
+        priceLine.value=""
+        console.log(allTodos);
+        showErr.innerHTML=""
+
+        show.innerHTML =""
+        show.innerHTML +=
+             `<tr style=" border: 2px solid ;padding: 5px;">
+                
+                <td  style=" border: 2px solid ;font-size:10px;padding-bottom: 0px;"><h1>S/N</h1></td>
+             <td  style=" border: 2px solid ;font-size:10px;padding-bottom: 0px;"><h1>Name </h1></td>
+            <td  style=" border: 2px solid ;font-size:10px;padding-bottom: 0px;"> <h1>Description</h1> </td>
+            <td  style=" border: 2px solid ;font-size:10px;padding-bottom: 0px;"><h1>Price($)</h1> </td>
+            <td  style=" border: 2px solid ;font-size:10px;padding-bottom: 0px;"><h1>Date</h1> </td>
+            <td  style=" border: 2px solid ;font-size:10px;padding-bottom: 0px;"><h1>Time</h1> </td>
+            
+            </tr>`
+        allTodos.map((tod,index)=>{
+            show.innerHTML +=
+             `<tr style=" border: 2px solid ;padding: 5px;">
+                
+                <td  style=" border: 2px solid ;padding: 5px;">${index+1}</td>
+             <td  style=" border: 2px solid ;padding: 5px;font-size:8px;"><h1 style ="margin-top:10px;">${tod.name }</h1></td>
+            <td  style=" border: 2px solid ;padding: 5px;"> <p>${tod.description}</p> </td>
+            <td  style=" border: 2px solid ;padding: 5px;"> <p>${tod.price}</p> </td>
+            <td  style=" border: 2px solid ;padding: 5px;"><small>${tod.date}</small> </td>
+            <td  style=" border: 2px solid ;padding: 5px;"><small>${tod.time}</small> </td>
+            <td  style=" border: 2px solid ;padding: 5px;"> <button onclick="Deleteany(${index})">Delete any</button> </td>
+            </tr>
+            `
+        
+        });
+    }
+       
+    }
+    function Deleteany(index){
+            console.log(index);
+            allTodos.splice(index,1)
+            show.innerHTML ="";
+            show.innerHTML +=
+             `<tr style=" border: 2px solid ;padding: 5px;">
+                
+                <td  style=" border: 2px solid ;font-size:10px;padding-bottom: 0px;"><h1>S/N</h1></td>
+             <td  style=" border: 2px solid ;font-size:10px;padding-bottom: 0px;"><h1>Name </h1></td>
+            <td  style=" border: 2px solid ;font-size:10px;padding-bottom: 0px;"> <h1>Description</h1> </td>
+            <td  style=" border: 2px solid ;font-size:10px;padding-bottom: 0px;"><h1>Price($)</h1> </td>
+            <td  style=" border: 2px solid ;font-size:10px;padding-bottom: 0px;"><h1>Date</h1> </td>
+            <td  style=" border: 2px solid ;font-size:10px;padding-bottom: 0px;"><h1>Time</h1> </td>
+            
+            </tr>`
+            allTodos.map((tod,index)=>{
+            show.innerHTML +=
+             `<tr style=" border: 2px solid ;padding: 5px;">
+                
+                <td  style=" border: 2px solid ;padding: 5px;">${index+1}</td>
+             <td  style=" border: 2px solid ;padding: 5px;font-size:8px;"><h1 style ="margin-top:10px;">${tod.name }</h1></td>
+            <td  style=" border: 2px solid ;padding: 5px;"> <p>${tod.description}</p> </td>
+            <td  style=" border: 2px solid ;padding: 5px;"> <p>${tod.price}</p> </td>
+            <td  style=" border: 2px solid ;padding: 5px;"><small>${tod.date}</small> </td>
+            <td  style=" border: 2px solid ;padding: 5px;"><small>${tod.time}</small> </td>
+            <td  style=" border: 2px solid ;padding: 5px;"> <button onclick="Deleteany(${index})">Deletany</button> </td>
+            </tr>
+            `
+        
+        });
+        }
+    </script>
+</body>
+</html>

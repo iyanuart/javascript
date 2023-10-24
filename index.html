@@ -78,6 +78,7 @@
             <td  style=" border: 2px solid ;padding: 5px;"><small>${tod.date}</small> </td>
             <td  style=" border: 2px solid ;padding: 5px;"><small>${tod.time}</small> </td>
             <td  style=" border: 2px solid ;padding: 5px;"> <button onclick="Deleteany(${index})">Delete any</button> </td>
+            <td  style=" border: 2px solid ;padding: 5px;"> <button onclick="edit(${index})">edit</button> </td>
             </tr>
             `
         
@@ -115,6 +116,10 @@
             `
         
         });
+        showErr.innerHTML=`<p style="border-radius: 5px; padding-left:5px; font-size:18px; padding-top:10px;margin-bottom:10px; height:10%;margin-top:15px;background-color: rgb(161, 243, 161);">Deleted successfully</p>`
+        }
+        function edit(index){
+            
         }
     </script>
 </body>

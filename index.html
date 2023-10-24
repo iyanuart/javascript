@@ -9,7 +9,7 @@
     <div id="showErr"></div>
     <input type="text" placeholder="enter name of product" id="nameOfProduct" autofocus>
     <input type="text" placeholder="enter description"  id="descriptionBoth" >
-    <input type="number " placeholder="enter price" id="priceLine">
+    <input type="number" placeholder="enter price" id="priceLine">
     <button  onclick="submitTodo()" id="vcd">submit</button>
     <div id="dr">
     <table id="show" style=" border: 2px solid rebeccapurple;
@@ -17,17 +17,8 @@
     </div>
     <script>
              var allTodos =[]
-             show.innerHTML +=
-             `<tr style=" border: 2px solid ;padding: 5px;">
-                
-                <td  style=" border: 2px solid ;font-size:10px;padding-bottom: 0px;"><h1>S/N</h1></td>
-             <td  style=" border: 2px solid ;font-size:10px;padding-bottom: 0px;"><h1>Name </h1></td>
-            <td  style=" border: 2px solid ;font-size:10px;padding-bottom: 0px;"> <h1>Description</h1> </td>
-            <td  style=" border: 2px solid ;font-size:10px;padding-bottom: 0px;"><h1>Price($)</h1> </td>
-            <td  style=" border: 2px solid ;font-size:10px;padding-bottom: 0px;"><h1>Date</h1> </td>
-            <td  style=" border: 2px solid ;font-size:10px;padding-bottom: 0px;"><h1>Time</h1> </td>
-            
-            </tr>`
+             show.innerHTML=`<p style=" text-align:center; font-size:25px; padding-top:10px;margin-bottom:10px; margin-top:15px; color:red; font-weight:600;">No items inputed</p>`
+    
     function submitTodo() {
         var day =  new Date()
         var time = day.toLocaleTimeString()
@@ -112,15 +103,28 @@
             <td  style=" border: 2px solid ;padding: 5px;"><small>${tod.date}</small> </td>
             <td  style=" border: 2px solid ;padding: 5px;"><small>${tod.time}</small> </td>
             <td  style=" border: 2px solid ;padding: 5px;"> <button onclick="Deleteany(${index})">Deletany</button> </td>
+            <td  style=" border: 2px solid ;padding: 5px;"> <button onclick="edit(${index})">edit</button> </td>
             </tr>
             `
         
         });
         showErr.innerHTML=`<p style="border-radius: 5px; padding-left:5px; font-size:18px; padding-top:10px;margin-bottom:10px; height:10%;margin-top:15px;background-color: rgb(161, 243, 161);">Deleted successfully</p>`
         }
-        function edit(index){
+        // function edit(index){
+        //     if (show.innerHTML!=`<p style=" text-align:center; font-size:25px; padding-top:10px;margin-bottom:10px; margin-top:15px; color:red; font-weight:600;">No items inputed</p>`){         
+        //     var userinput = Number(prompt("enter the number "))
+        //     var newInput =descriptionBoth.value
+        //     var newInput = prompt("enter new item")
+        //     allTodos[userinput - 1] = newInput;
+        //    display(); 
+        //    }
+        //    else{
+        //     var userinput = ""
+        //     var newInput = ""
+        //     showErr.innerHTML=`<p style="border-radius: 5px; padding-left:5px; font-size:18px; padding-top:10px;margin-bottom:10px; height:10%;margin-top:15px;background-color: rgb(255, 168, 168);">You must add to cart to edit</p>`
             
-        }
+        //    }
+        // }
     </script>
 </body>
 </html>

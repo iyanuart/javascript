@@ -5,6 +5,7 @@
 }
 html,body{
     overflow-x: hidden ;
+    scroll-behavior: smooth;
 }
 body{
    background-color: rgb(234, 234, 235);
@@ -38,12 +39,15 @@ button{
 #show{
     margin-top: 20px;
     margin-left: 50px;
-    width: 60%;
+    width: 90%;
    
+}
+h1{
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 #dr{
     overflow-x: scroll;
-    scroll-behavior: smooth;
     padding-bottom: 25px;
 }
 #showErr{

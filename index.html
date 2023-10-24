@@ -69,8 +69,8 @@
             <td  style=" border: 2px solid ;padding: 5px;"> <p>${tod.price}</p> </td>
             <td  style=" border: 2px solid ;padding: 5px;"><small>${tod.date}</small> </td>
             <td  style=" border: 2px solid ;padding: 5px;"><small>${tod.time}</small> </td>
-            <td  style=" border: 2px solid ;padding: 5px;"> <button background-color:red; onclick="Deleteany(${index})">Delete any</button> </td>
-            <td  style=" border: 2px solid ;padding: 5px;"> <button onclick="edit(${index})">edit</button> </td>
+            <td  style=" border: 2px solid ;padding: 5px;"> <button style=" background-color:red; width:90%; padding-top:10px; padding-bottom:10px;" onclick="Deleteany(${index})">Delete</button> </td>
+            <td  style=" border: 2px solid ;padding: 5px;"> <button style="width:90%; padding-top:10px; padding-bottom:10px;" onclick="edit(${index})">edit</button> </td>
             </tr>
             `
         
@@ -82,6 +82,7 @@
             console.log(index);
             allTodos.splice(index,1)
             show.innerHTML ="";
+            var check = confirm("are you sure you want to delete")
             show.innerHTML +=
              `<tr style=" border: 2px solid ;padding: 5px;">
                 
@@ -103,8 +104,8 @@
             <td  style=" border: 2px solid ;padding: 5px;"> <p>${tod.price}</p> </td>
             <td  style=" border: 2px solid ;padding: 5px;"><small>${tod.date}</small> </td>
             <td  style=" border: 2px solid ;padding: 5px;"><small>${tod.time}</small> </td>
-            <td  style=" border: 2px solid ;padding: 5px;"> <button background-color:red; onclick="Deleteany(${index})">Deletany</button> </td>
-            <td  style=" border: 2px solid ;padding: 5px;"> <button onclick="edit(${index})">edit</button> </td>
+            <td  style=" border: 2px solid ;padding: 5px;"> <button style=" background-color:red; height:12%;" onclick="Deleteany(${index})">Delete</button> </td>
+            <td  style=" border: 2px solid ;padding: 5px;"> <button style=" height:12%;" onclick="edit(${index})">edit</button> </td>
             </tr>
             `
         

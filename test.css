@@ -16,8 +16,21 @@ input{
     border: transparent;
     width: 30%;
     height: 8%;
-    margin-left: 30px;
+  
     
+}
+#nameOfProduct{
+    margin-left: 30px;
+}
+#descriptionBoth{
+    margin-left: 30px;
+}
+#priceLine{
+    margin-left: 30px;
+}
+.begin{
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 button{
     background-color: rgb(24, 101, 189);
@@ -35,6 +48,7 @@ button{
     width: 90%;
     margin-top: 10px;
     margin-left: 50px;
+    border-radius: 5px;
 }
 #show{
     margin-top: 20px;
@@ -42,14 +56,11 @@ button{
     width: 90%;
    
 }
-h1{
-    margin-bottom: 20px;
-    margin-top: 20px;
-}
-#dr{
+
+/* #dr{
     overflow-x: scroll;
     padding-bottom: 25px;
-}
+} */
 #showErr{
   margin-left: 50px;
   margin-right: 80px;
@@ -82,6 +93,10 @@ button{
 #show{
     transform: translateX(-35px);
 
+}
+#dr{
+    overflow-x: scroll;
+    padding-bottom: 25px;
 }
 
 }

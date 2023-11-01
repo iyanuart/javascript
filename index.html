@@ -23,15 +23,18 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit </h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          ...
+            <input type="number" placeholder="enter the price" id="numberL">
+          <input type="text" placeholder="enter name of product" id="productL">
+          <input type="text" placeholder="enter description " id="descriptionL" >
+          <input type="number" placeholder="enter serial number " id="numberT">
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Understood</button>
+          
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="display()">submit</button>
         </div>
       </div>
     </div>
@@ -90,7 +93,7 @@
             <td  style=" border: 2px solid ;padding: 5px;"><small>${tod.date}</small> </td>
             <td  style=" border: 2px solid ;padding: 5px;"><small>${tod.time}</small> </td>
             <td  style=" border: 2px solid ;padding: 5px;"> <button style=" background-color:red; width:90%; padding-top:10px; padding-bottom:10px;" onclick="Deleteany(${index})">Delete</button> </td>
-            <td  style=" border: 2px solid ;padding: 5px;"> <button type="button"data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="width:90%; padding-top:10px; padding-bottom:10px;" onclick="edit(${index})">edit</button> </td>
+            <td  style=" border: 2px solid ;padding: 5px;"> <button type="button"data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="width:90%; padding-top:10px; padding-bottom:10px;" >edit</button> </td>
             </tr>
             `
         
@@ -99,19 +102,25 @@
        
     }
     function Deleteany(index){
+       
+            var check = confirm("are you sure you want to delete")
+            
+        if(check==true){
+                      
+        
+            if(show.innerHTML!=`<p style=" text-align:center; font-size:25px; padding-top:10px;margin-bottom:10px; margin-top:15px; color:red; font-weight:600;">No items inputed</p>`){
             console.log(index);
             allTodos.splice(index,1)
             show.innerHTML ="";
-            var check = confirm("are you sure you want to delete")
             show.innerHTML +=
              `<tr style=" border: 2px solid ;padding: 5px;">
                 
-                <td  style=" border: 2px solid ;padding-bottom: 0px; "  "><h1 class="fs-4>S/N</h1></td>
-             <td  style=" border: 2px solid ;padding-bottom: 0px;" ><h1 class="fs-4>Name </h1></td>
-            <td  style=" border: 2px solid ;padding-bottom: 0px;" > <h1 class="fs-4>Description</h1> </td>
-            <td  style=" border: 2px solid ;padding-bottom: 0px;"><h1 class="fs-4>Price($)</h1> </td>
-            <td  style=" border: 2px solid ;padding-bottom: 0px;" <h1 class="fs-4>Date</h1> </td>
-            <td  style=" border: 2px solid ;padding-bottom: 0px;" ><h1 class="fs-4>Time</h1> </td>
+                <td  style=" border: 2px solid ;font-size:10px;padding-bottom: 0px;"><h1 class="fs-4">S/N</h1></td>
+             <td  style=" border: 2px solid ;font-size:10px;padding-bottom: 0px;"><h1 class="fs-4">Name </h1></td>
+            <td  style=" border: 2px solid ;font-size:10px;padding-bottom: 0px;"> <h1 class="fs-4">Description</h1> </td>
+            <td  style=" border: 2px solid ;font-size:10px;padding-bottom: 0px;"><h1 class="fs-4">Price($)</h1> </td>
+            <td  style=" border: 2px solid ;font-size:10px;padding-bottom: 0px;"><h1 class="fs-4">Date</h1> </td>
+            <td  style=" border: 2px solid ;font-size:10px;padding-bottom: 0px;"><h1 class="fs-4">Time</h1> </td>
             
             </tr>`
             allTodos.map((tod,index)=>{
@@ -124,56 +133,103 @@
             <td  style=" border: 2px solid ;padding: 5px;"> <p style ="margin-top:10px;">${tod.price}</p> </td>
             <td  style=" border: 2px solid ;padding: 5px;"><small>${tod.date}</small> </td>
             <td  style=" border: 2px solid ;padding: 5px;"><small>${tod.time}</small> </td>
-            <td  style=" border: 2px solid ;padding: 5px;"> <button style=" background-color:red; height:12%;" onclick="Deleteany(${index})">Delete</button> </td>
-            <td  style=" border: 2px solid ;padding: 5px;"> <button type="button"  data-bs-toggle="modal" data-bs-target="#staticBackdrop" style=" height:12%;" onclick="edit(${index})">edit</button> </td>
+            <td  style=" border: 2px solid ;padding: 5px;"> <button style=" background-color:red;width:90%; padding-top:10px; padding-bottom:10px;" onclick="Deleteany(${index})">Delete</button> </td>
+            <td  style=" border: 2px solid ;padding: 5px;"> <button type="button"data-bs-toggle="modal" data-bs-target="#staticBackdrop"  style="width:90%; padding-top:10px; padding-bottom:10px;" >edit</button> </td>
             </tr>
             `
         
         });
         showErr.innerHTML=`<p style="border-radius: 5px; padding-left:5px; font-size:18px; padding-top:10px;margin-bottom:10px; height:10%;margin-top:15px;background-color: rgb(161, 243, 161);">Deleted successfully</p>`
         }
-        function edit(index){
-                  
-            // var userinput = Number(prompt("enter the number "))
-            // var newInput = name
-            // var newInput = prompt("enter new item")
-            // var newInput2 = descriptionBoth.value
-            // var newInput2 = prompt("enter new item")
-            // var newInput3 = priceLine.value
-            // var newInput3 = prompt("enter new item")
-            // allTodos[userinput - 1] = newInput && newInput2 && newInput3;
-
-           
-        //     show.innerHTML +=
-        //      `<tr style=" border: 2px solid ;padding: 5px;">
-                
-        //         <td  style=" border: 2px solid ;padding-bottom: 0px; "  "><h1 class="fs-4>S/N</h1></td>
-        //      <td  style=" border: 2px solid ;padding-bottom: 0px;" ><h1 class="fs-4>Name </h1></td>
-        //     <td  style=" border: 2px solid ;padding-bottom: 0px;" > <h1 class="fs-4>Description</h1> </td>
-        //     <td  style=" border: 2px solid ;padding-bottom: 0px;"><h1 class="fs-4>Price($)</h1> </td>
-        //     <td  style=" border: 2px solid ;padding-bottom: 0px;" <h1 class="fs-4>Date</h1> </td>
-        //     <td  style=" border: 2px solid ;padding-bottom: 0px;" ><h1 class="fs-4>Time</h1> </td>
-            
-        //     </tr>`
-        //     allTodos.map((tod,index)=>{
-        //     show.innerHTML +=
-        //      `<tr style=" border: 2px solid ;padding: 5px;">
-                
-        //         <td  style=" border: 2px solid ;padding: 5px;">${index+1}</td>
-        //      <td  style=" border: 2px solid ;padding: 5px;font-size:8px;"><h1 style ="margin-top:8px;" class="fs-4">${tod.name }</h1></td>
-        //     <td  style=" border: 2px solid ;padding: 5px;"> <p style ="margin-top:10px;">${tod.description}</p> </td>
-        //     <td  style=" border: 2px solid ;padding: 5px;"> <p style ="margin-top:10px;">${tod.price}</p> </td>
-        //     <td  style=" border: 2px solid ;padding: 5px;"><small>${tod.date}</small> </td>
-        //     <td  style=" border: 2px solid ;padding: 5px;"><small>${tod.time}</small> </td>
-        //     <td  style=" border: 2px solid ;padding: 5px;"> <button style=" background-color:red; height:12%;" onclick="Deleteany(${index})">Delete</button> </td>
-        //     <td  style=" border: 2px solid ;padding: 5px;"> <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style=" height:12%;" onclick="edit(${index})">edit</button> </td>
-        //     </tr>
-        //     `
+       
+        }
+         }
+         
         
-        // });
+         function display(){
+          var day =  new Date()
+        var time= day.toLocaleTimeString()
+        var date = day.toLocaleDateString()
+        var description= descriptionL.value;
+        var price = numberL.value;
+        var name= productL.value
+        var todoObj ={time,date,name,description,price}
+        if(  productL.value=="" && descriptionL.value==""&& numberL.value==""){
+            showErr.innerHTML=`<p style="border-radius: 5px; padding-left:5px; font-size:18px; padding-top:10px;margin-bottom:10px; height:10%;margin-top:15px;background-color: rgb(255, 168, 168);">Space must be filled</p>`
+        }
        
-       
+        else if(productL.value!="" && descriptionL.value!=""&& numberL.value=="" || productL.value=="" && descriptionL.value!=""&& numberL.value!="" ||productL.value!="" && descriptionL.value==""&& numberL.value!="" || productL.value=="" && descriptionL.value==""&& numberL.value!=""||productL.value=="" && descriptionL.value!=""&& numberL.value=="" ||productL.value!="" && descriptionL.value==""&& numberL.value==""){
+            showErr.innerHTML=`<p style="border-radius: 5px; padding-left:5px; font-size:18px; padding-top:10px;margin-bottom:10px; height:10%;margin-top:15px;background-color: rgb(255, 168, 168);">All space must be filled</p>`
+            productL.value="";
+            descriptionL.value="";
+            numberL.value="";
+        }
+        allTodos.push(todoObj)
+        productL.value=""
+        descriptionL.value=""
+        numberL.value=""
+        console.log(allTodos);
 
+        show.innerHTML=""
+        show.innerHTML +=
+             `<tr style=" border: 2px solid ;padding: 5px;">
+                
+                <td  style=" border: 2px solid ;padding-bottom: 0px;"><h1 class="fs-4">S/N</h1></td>
+             <td  style=" border: 2px solid ;padding-bottom: 0px;"><h1 class="fs-4">Name </h1></td>
+            <td  style=" border: 2px solid ;padding-bottom: 0px;"> <h1 class="fs-4">Description</h1> </td>
+            <td  style=" border: 2px solid ;padding-bottom: 0px;"><h1 class="fs-4">Price($)</h1> </td>
+            <td  style=" border: 2px solid ;padding-bottom: 0px;"><h1 class="fs-4">Date</h1> </td>
+            <td  style=" border: 2px solid ;padding-bottom: 0px;"><h1 class="fs-4">Time</h1> </td>
+            
+            </tr>`
+        allTodos.map((tod,index)=>{
+            show.innerHTML +=
+             `<tr style=" border: 2px solid ;padding: 5px;">
+                
+                <td  style=" border: 2px solid ;padding: 5px;">${index+1}</td>
+             <td  style=" border: 2px solid ;padding: 5px;font-size:8px;"><h1 style ="margin-top:8px;" class="fs-4">${ tod.name }</h1></td>
+            <td  style=" border: 2px solid ;padding: 5px;"> <p style ="margin-top:10px;">${tod.description}</p> </td>
+            <td  style=" border: 2px solid ;padding: 5px;"> <p style ="margin-top:10px;">${tod.price}</p> </td>
+            <td  style=" border: 2px solid ;padding: 5px;"><small>${tod.date}</small> </td>
+            <td  style=" border: 2px solid ;padding: 5px;"><small>${tod.time}</small> </td>
+            <td  style=" border: 2px solid ;padding: 5px;"> <button style=" background-color:red;width:90%; padding-top:10px; padding-bottom:10px;" onclick="Deleteany(${index})">Delete</button> </td>
+            <td  style=" border: 2px solid ;padding: 5px;"> <button type="button"data-bs-toggle="modal" data-bs-target="#staticBackdrop"  style="width:90%; padding-top:10px; padding-bottom:10px;" >edit</button> </td>
+            </tr>
+            `
+        
+        });
+        var userinput =numberT.value
+         allTodos.splice(userinput-1,1,)
+        
+        show.innerHTML ="";
+            show.innerHTML +=
+             `<tr style=" border: 2px solid ;padding: 5px;">
+                
+                <td  style=" border: 2px solid ;font-size:10px;padding-bottom: 0px;"><h1 class="fs-4">S/N</h1></td>
+             <td  style=" border: 2px solid ;font-size:10px;padding-bottom: 0px;"><h1 class="fs-4">Name </h1></td>
+            <td  style=" border: 2px solid ;font-size:10px;padding-bottom: 0px;"> <h1 class="fs-4">Description</h1> </td>
+            <td  style=" border: 2px solid ;font-size:10px;padding-bottom: 0px;"><h1 class="fs-4">Price($)</h1> </td>
+            <td  style=" border: 2px solid ;font-size:10px;padding-bottom: 0px;"><h1 class="fs-4">Date</h1> </td>
+            <td  style=" border: 2px solid ;font-size:10px;padding-bottom: 0px;"><h1 class="fs-4">Time</h1> </td>
+            
+            </tr>`
+            allTodos.map((tod,index)=>{
+            show.innerHTML +=
+             `<tr style=" border: 2px solid ;padding: 5px;">
+                
+                <td  style=" border: 2px solid ;padding: 5px;">${index+1}</td>
+             <td  style=" border: 2px solid ;padding: 5px;font-size:8px;"><h1 style ="margin-top:8px;" class="fs-4">${tod.name }</h1></td>
+            <td  style=" border: 2px solid ;padding: 5px;"> <p style ="margin-top:10px;">${tod.description}</p> </td>
+            <td  style=" border: 2px solid ;padding: 5px;"> <p style ="margin-top:10px;">${tod.price}</p> </td>
+            <td  style=" border: 2px solid ;padding: 5px;"><small>${tod.date}</small> </td>
+            <td  style=" border: 2px solid ;padding: 5px;"><small>${tod.time}</small> </td>
+            <td  style=" border: 2px solid ;padding: 5px;"> <button style=" background-color:red;width:90%; padding-top:10px; padding-bottom:10px;" onclick="Deleteany(${index})">Delete</button> </td>
+            <td  style=" border: 2px solid ;padding: 5px;"> <button type="button"data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="width:90%; padding-top:10px; padding-bottom:10px;" onclick="edit(${index})">edit</button> </td>
+            </tr>
+            `
+        
+        });
+        
          }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>

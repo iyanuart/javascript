@@ -100,3 +100,23 @@ button{
 }
 
 }
+#numberL{
+    width: 90%;
+    padding: 10px 2px;
+    margin-bottom: 8px;
+}
+#productL{
+    width: 90%; 
+    padding: 10px 2px;
+    margin-bottom: 8px;
+}
+#descriptionL{
+    width: 90%;
+    padding: 10px 2px;
+    margin-bottom: 8px;
+}
+#numberT{
+    width:90%;
+    padding: 10px 2px;
+    margin-bottom: 8px;
+}
